@@ -19,11 +19,11 @@ To run this project, follow these steps:
 
 3. To process the data and train the classifier, run the following command:
 
-  `python process_data.py disaster_messages.csv disaster_categories.csv DisasterResponse.db`
+  `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
 
 4. To launch the web application, run the following command:
 
-  `python run.py`
+  `python app/run.py`
 
 5. Once the server is running, open your web browser and go to http://localhost:3000 to access the web application. The web application allows you to enter a message and view the corresponding categories predicted by the trained classifier.
 
