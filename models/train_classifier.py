@@ -33,8 +33,8 @@ def load_data(database_filepath):
     # load data from database
     engine = create_engine(f"sqlite:///{database_filepath}")
     df = pd.read_sql_table("disaster_response", engine)
-    X = df[["message"]]
-    y = df[df.columns[4:]]
+    X = df["message"]
+    y = df.drop(["id", "message", "original", "genre"], axis = 1)
     category_names = y.columns.tolist()
 
     return X, y, category_names
