@@ -36,7 +36,7 @@ def load_data(database_filepath):
     y = df[df.columns[4:]]
     category_names = y.columns.tolist()
 
-    return X, Y, category_names
+    return X, y, category_names
 
 
 def tokenize(text):
