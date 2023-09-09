@@ -6,6 +6,19 @@ This project aims to develop a disaster response pipeline that can categorize me
 
 During a disaster or crisis, numerous messages are generated from various sources such as social media, emergency hotlines, and news outlets. Classifying and categorizing these messages manually can be time-consuming and inefficient. This project addresses this problem by building a machine learning pipeline to automate the process of message classification, enabling rapid response and allocation of resources.
 
+### File Structure
+The project directory contains the following files and directories:
+1. `data`: Within this directory, you will find scripts for data processing as well as the raw data files:
+    - `process_data.py`: This script handles the ETL (Extract, Transform, Load) process, cleaning the data and storing it in a SQLite database.
+    - `disaster_messages.csv`: A CSV file that holds the disaster response messages.
+    - `disaster_categories.csv`: Another CSV file that contains the categories associated with each message.
+2. `models`: In this directory, you'll discover the machine learning script and the saved model file:
+    - `train_classifier.py`: This script focuses on training a classifier using the cleaned data and then saves the trained model as a pickle file.
+    - `classifier.pkl`: The saved model file that stores the trained classifier.
+3. `app`: This directory is dedicated to the web application files:
+    - `run.py`: A Python script that executes the web application.
+    - `templates`: A folder containing HTML templates used for various web pages.
+
 ### Usage
 
 To run this project, follow these steps:
