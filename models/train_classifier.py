@@ -1,7 +1,7 @@
 import sys
 from sqlalchemy import create_engine
 import nltk
-nltk.download(['punkt', 'wordnet'])
+nltk.download(['punkt', 'wordnet', 'stopwords', 'omw-1.4'])
 
 import re
 import pickle
@@ -81,13 +81,16 @@ def build_model():
     
     # Define the parameters for grid search
     parameters = {
-        "vect__max_df": (0.5, 0.75, 1.0),
-        "clf__estimator__random_state": [0],
-        "clf__estimator__n_estimators": range(20, 301, 10),
-        "clf__estimator__max_features": list(range(7, 20, 2)) + ["auto"],
-        "clf__estimator__max_depth": list(range(3, 20, 2)) + [None],
-        "clf__estimator__min_samples_split": range(2, 1003, 100),
-        "clf__estimator__min_samples_leaf": range(1, 72, 10),
+        # "vect__max_df": (0.5, 0.75, 1.0),
+        # "clf__estimator__random_state": [0],
+        # "clf__estimator__n_estimators": range(20, 301, 10),
+        # "clf__estimator__max_features": list(range(7, 20, 2)) + ["auto"],
+        # "clf__estimator__max_depth": list(range(3, 20, 2)) + [None],
+        # "clf__estimator__min_samples_split": range(2, 1003, 100),
+        # "clf__estimator__min_samples_leaf": range(1, 72, 10),
+        "vect__max_df": (0.5, 0.75),
+        'clf__estimator__n_estimators': [5],
+        'clf__estimator__min_samples_split': [2]
     }
 
     # Perform grid search
@@ -112,7 +115,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
     # Iterate through each output category
     for i, c in enumerate(category_names):
         print("Category: ", c)
-        print(classification_report(Y_test[column], Y_pred[:, i]))
+        print(classification_report(Y_test[c], Y_pred[:, i]))
         print()
 
 

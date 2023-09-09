@@ -63,6 +63,7 @@ def clean_data(df):
     Returns:
         df (pandas.DataFrame): Cleaned dataset without duplicates.
     """
+    df = df[df["related"] != 2]
     df.drop_duplicates(inplace = True)
     df.reset_index(drop = True, inplace = True)
 
