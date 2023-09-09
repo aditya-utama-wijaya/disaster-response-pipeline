@@ -24,19 +24,21 @@ The project directory contains the following files and directories:
 To run this project, follow these steps:
 1. Clone the repository
 
-  `git clone https://github.com/aditya-utama-wijaya/disaster-response-pipeline.git`
+    - `git clone https://github.com/aditya-utama-wijaya/disaster-response-pipeline.git`
 
 2. Change into the project directory
 
-  `cd disaster-response-pipeline`
+    - `cd disaster-response-pipeline`
 
 3. To process the data and train the classifier, run the following command:
 
-  `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
+    - `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
+  
+    - `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
 
 4. To launch the web application, run the following command:
 
-  `python app/run.py`
+    - `python app/run.py`
 
 5. Once the server is running, open your web browser and go to http://localhost:3000 to access the web application. The web application allows you to enter a message and view the corresponding categories predicted by the trained classifier.
 
